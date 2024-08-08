@@ -1,0 +1,86 @@
+<!-- JavaScript and Java are completely different languages, both in concept and design.
+
+JavaScript was invented by Brendan Eich in 1995, and became an ECMA standard in 1997.
+
+ECMA-262 is the official name of the standard. ECMAScript is the official name of the language. 
+
+Scripts can be placed in the <body>, or in the <head> section of an HTML page, or in both.
+Placing scripts at the bottom of the <body> element improves the display speed, because script interpretation slows down the display
+
+Old JavaScript examples may use a type attribute: <script type="text/javascript">.
+The type attribute is not required. JavaScript is the default scripting language in HTML.-->
+
+
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction</title>
+</head>
+<!-- <body>
+    <h2>What Js Can Do?</h2>
+    <p id="click"></p>
+
+    <button type="button" onclick="document.getElementById('click').innerHTML='hello!this is generated after clickd the button.'">Click me!</button>
+</body> -->
+
+<body>
+    <h2>Light on and off and blast:-</h2>
+    <br>
+
+    <button type="button" id="on">Turn ON</button>
+    <img src="off.png" style="width: 120px;" id="bulb">
+    <button type="button" id="off">Turn OFF</button>
+    <p id="warn"></p>
+
+   <script>
+    const onn=document.getElementById('on');
+    const off=document.getElementById('off');
+    const bulb=document.getElementById('bulb');
+    const warning=document.getElementById('warn');
+
+    let clickCount=0;
+    onn.addEventListener('click',function(){
+        clickCount++;
+        bulb.src='on.png';
+
+        onn.style.backgroundColor='yellow';
+        setTimeout(()=>{
+            off.style.backgroundColor='';
+        },100);
+
+        checkCount();
+        
+    })
+    
+    off.addEventListener('click',function(){
+        clickCount++;
+        bulb.src='off.png';
+        
+        off.style.backgroundColor='grey';
+        setTimeout(()=>{
+            onn.style.backgroundColor='';
+        },100);
+        
+        checkCount();
+    })
+
+    function checkCount(){
+        if(clickCount===5){
+            warning.innerHTML="*(WARNING: Further clicks will make bulb damage).";
+        };
+
+        if(clickCount===7){
+            warning.innerHTML="*(WARNING: Further clicks will make bulb damage).";
+            off.style.display='none';
+            onn.style.display='none';
+            warning.style.display='none';
+            bulb.src='broke.png'
+        };
+    }
+   </script>
+
+</body>
+</html>
